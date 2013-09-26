@@ -43,5 +43,43 @@ class Encryptor
 	output.write(encrypted_text)
 	# Close the file
 	output.close
+
+	## SHORTENED CODE
+
+	# input = File.open(filename, "r")
+	# output = File.open(filename + ".encrypted", "w") 	
+	# output.write( encrypt(input.read, rotation))
+	# output.close
+  end
+
+  def decrypt_file(filename, rotation)
+  	# Create the file handle to the encrypted file
+  	input = File.open(filename, "r")
+	# Read the encrypted text
+	text = input.read
+	# Decrypt the text by passing in the text and rotation
+	decrypted_text = decrypt(text, rotation)
+	# Create a name for the decrypted file
+	output_filename = filename.gsub("encrypted", "decrypted")
+	# Create an output file handle
+	output = File.open(output_filename, "w")
+	# Write out the text
+	output.write(decrypted_text)
+	# Close the file
+	output.close
   end
  end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
